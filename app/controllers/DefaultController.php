@@ -187,66 +187,6 @@ class DefaultController extends ControllerBase{
     public function messageInfo($message,$timerInterval=0,$dismissable=true){
     	$this->_showMessage($message,"info",$timerInterval,$dismissable);
     }
-    
-    
-    private function _registerSession($user)
-    {
-    	$this->session->set(
-    			'auth',
-    			array(
-    					'id'   => $user->id,
-    					'name' => $user->name
-    			)
-    			);
-    }
-    
-    /**
-     * This action authenticate and logs a user into the application
-     */
-    public function loginAction()
-    {
-    	if ($this->request->isPost()) {
-    
-    		// Get the data from the user
-    		$email    = $this->request->getPost('mail');
-    		$password = $this->request->getPost('password');
-    
-    		// Find the user in the database
-    		$user = 
-    				array(
-    						"(mail = :email:) AND password = :password:",
-    						'bind' => array(
-    								'mail'    => $email,
-    								'password' => $password
-    						)
-    				
-    				);
-    
-    		if ($user != false) {
-    
-    			$this->_registerSession($user);
-    
-    			$this->flash->success('Welcome ' . $user->name);
-    
-    			// Forward to the 'invoices' controller if the user is valid
-    			return $this->dispatcher->forward(
-    					array(
-    							'controller' => 'Index',
-    							'action'     => 'index'
-    					)
-    					);
-    		}
-    
-    		$this->flash->error('Wrong email/password');
-    	}
-    
-    	// Forward to the login form again
-    	return $this->dispatcher->forward(
-    			array(
-    					'controller' => 'session',
-    					'action'     => 'index'
-    			)
-    			);
-    }
+  
 }
 
