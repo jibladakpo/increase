@@ -13,9 +13,18 @@
 	<div class="second-header"></div>
 	<div class="bs-docs-header">
 		<div class="container">
+		
 			<div class="header">
+			
 				<h1>Increase</h1>
 				<p>Manage the progress of your projects, improve communication with customers.</p>
+				
+				
+				</div>
+				<div>
+					<?php $dropdown=$this->jquery->bootstrap()->htmlDropdown("dd1","Connexion",array("<a href='defaultc/asAdmin'>Connexion en tant qu'admin</a>","<a href='defaultc/asAdmin'>Connexion en tant que user</a>"));
+						$dropdown->asButton("btn-info");
+						echo $dropdown; ?>
 			</div>
 		</div>
 	</div>
