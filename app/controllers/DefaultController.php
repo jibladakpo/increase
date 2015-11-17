@@ -188,6 +188,18 @@ class DefaultController extends ControllerBase{
     	$this->_showMessage($message,"info",$timerInterval,$dismissable);
     }
     
+    
+    private function _registerSession($user)
+    {
+    	$this->session->set(
+    			'auth',
+    			array(
+    					'id'   => $user->id,
+    					'name' => $user->name
+    			)
+    			);
+    }
+    
     /**
      * This action authenticate and logs a user into the application
      */
@@ -200,14 +212,14 @@ class DefaultController extends ControllerBase{
     		$password = $this->request->getPost('password');
     
     		// Find the user in the database
-    		$user = User::findFirst(
+    		$user = 
     				array(
     						"(mail = :email:) AND password = :password:",
     						'bind' => array(
     								'mail'    => $email,
     								'password' => $password
     						)
-    				)
+    				
     				);
     
     		if ($user != false) {
@@ -219,7 +231,7 @@ class DefaultController extends ControllerBase{
     			// Forward to the 'invoices' controller if the user is valid
     			return $this->dispatcher->forward(
     					array(
-    							'controller' => 'invoices',
+    							'controller' => 'Index',
     							'action'     => 'index'
     					)
     					);
