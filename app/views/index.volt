@@ -31,7 +31,10 @@
 	<div class="container">
 		<ol class="breadcrumb">
 				<li><a href="{{url.get("index")}}"><span class="glyphicon glyphicon-home" aria-hidden="true"></span>&nbsp;Home</a></li>
-				<li><a href={{"Index/disconnect"}}><span class="glyphicon glyphicon-off" aria-hidden="true"></span>&nbsp;Déconnexion</a></li>
+				<li><a href="{{url.get("users")}}"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>&nbsp;Utilisateurs</a></li>
+				<li><a href="{{url.get("projects")}}"><span class="glyphicon glyphicon-briefcase" aria-hidden="true"></span>&nbsp;Projets</a></li>
+				<li><a href="{{url.get("taches")}}"><span class="glyphicon glyphicon-wrench" aria-hidden="true"></span>&nbsp;Taches</a></li>
+				<li><a href={{"Index/disconnect"}}><span class="glyphicon glyphicon-off" aria-hidden="true"></span>&nbsp;Deconnexion</a></li>
 			</ol>
 		<div class="content">
 			<div id="message"></div>
@@ -43,7 +46,7 @@
 	<div id="footer">
 		<div class="container">
 			<div class="col-md-4">
-			<p>Mentions légales</p>
+			<p>Mentions l�gales</p>
 			<p><span>Created with Phalcon</span></p>
 			</div>
 			<div class="col-md-4">
