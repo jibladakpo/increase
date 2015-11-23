@@ -187,6 +187,60 @@ class DefaultController extends ControllerBase{
     public function messageInfo($message,$timerInterval=0,$dismissable=true){
     	$this->_showMessage($message,"info",$timerInterval,$dismissable);
     }
+    
+    public function disconnectAction()
+    {
+    	// Destroy the whole session
+    	$this->session->destroy();
+    	 
+    	// Forward to the login form again
+    	return $this->dispatcher->forward(
+    			array(
+    					'controller' => 'Index',
+    					'action'     => 'frm_log'
+    			)
+    			);
+    }
+    
+    public function asAdminAction(){
+    	// Find the user in the database
+    	$_SESSION["user"]=User::findFirst("role='admin'");
+    	 
+    	 
+    	return $this->dispatcher->forward(
+    			array(
+    					'controller' => 'Index',
+    					'action'     => 'index'
+    			)
+    			);
+    
+    	 
+    }
+    
+    
+    public function asAuthorAction(){
+    	// Find the user in the database
+    	$_SESSION["user"]=User::findFirst("role='author'");
+    
+    
+    	return $this->dispatcher->forward(
+    			array(
+    					'controller' => 'Index',
+    					'action'     => 'index'
+    			)
+    			);
+    
+    
+    }
+    public function asUserAction(){
+    	$_SESSION["auth"]=User::findFirst("role='user'");
+    	return $this->dispatcher->forward(
+    			array(
+    					'controller' => 'Index',
+    					'action'     => 'index'
+    			)
+    			);
+    }
   
 }
 
