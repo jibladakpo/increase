@@ -22,7 +22,9 @@
 				
 				</div>
 				<div>
-					<?php $dropdown=$this->jquery->bootstrap()->htmlDropdown("dd1","Connexion",array("<a href='defaultc/asAdmin'>Connexion en tant qu'admin</a>","<a href='defaultc/asAdmin'>Connexion en tant que user</a>"));
+					<?php $dropdown=$this->jquery->bootstrap()->htmlDropdown("dd1","Connexion",array("<a href='Index/asAdmin'>Connexion en tant qu'admin</a>",
+					"<a href='./asUser'>Connexion en tant que user</a>
+					","<a href='Index/asAuthor'>Connexion en tant qu'author</a>"));
 						$dropdown->asButton("btn-info");
 						echo $dropdown; ?>
 			</div>
@@ -30,11 +32,12 @@
 	</div>
 	<div class="container">
 		<ol class="breadcrumb">
-				<li><a href="{{url.get("index")}}"><span class="glyphicon glyphicon-home" aria-hidden="true"></span>&nbsp;Home</a></li>
-				<li><a href="{{url.get("users")}}"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>&nbsp;Utilisateurs</a></li>
-				<li><a href="{{url.get("projects")}}"><span class="glyphicon glyphicon-briefcase" aria-hidden="true"></span>&nbsp;Projets</a></li>
-				<li><a href="{{url.get("taches")}}"><span class="glyphicon glyphicon-wrench" aria-hidden="true"></span>&nbsp;Taches</a></li>
-				<li><a href={{"Index/disconnect"}}><span class="glyphicon glyphicon-off" aria-hidden="true"></span>&nbsp;Deconnexion</a></li>
+				<li><a href="{{url.get("index/")}}"><span class="glyphicon glyphicon-home" aria-hidden="true"></span>&nbsp;Home</a></li>
+				<li><a href="{{url.get("users/")}}"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>&nbsp;Utilisateurs</a></li>
+				<li><a href="{{url.get("projects/")}}"><span class="glyphicon glyphicon-briefcase" aria-hidden="true"></span>&nbsp;Projets</a></li>
+				<li><a href="{{url.get("taches/")}}"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>&nbsp;Messages</a></li>
+				<li><a href="{{url.get("taches/")}}"><span class="glyphicon glyphicon-wrench" aria-hidden="true"></span>&nbsp;Taches</a></li>
+				if<li><a href="disconnect"><span class="glyphicon glyphicon-off" aria-hidden="true"></span>&nbsp;Deconnexion</a></li>
 			</ol>
 		<div class="content">
 			<div id="message"></div>
@@ -46,7 +49,7 @@
 	<div id="footer">
 		<div class="container">
 			<div class="col-md-4">
-			<p>Mentions légales</p>
+			<p>Mentions lï¿½gales</p>
 			<p><span>Created with Phalcon</span></p>
 			</div>
 			<div class="col-md-4">

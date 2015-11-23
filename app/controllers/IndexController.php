@@ -54,7 +54,7 @@ class IndexController extends ControllerBase
     		if ($user != false) {
     
     			$this->_registerSession($user);
-    
+    			$this->flash->success('Welcome ' . $user->identite);
     			// Forward to the 'index' controller if the user is valid
     			return $this->dispatcher->forward(
     					array(
@@ -89,5 +89,47 @@ class IndexController extends ControllerBase
     			)
     			);
     }
+    
+    public function asAdminAction(){
+    	// Find the user in the database
+    	$_SESSION["user"]=User::findFirst("role='admin'");
+    	
+    	
+    		return $this->dispatcher->forward(
+    				array(
+    						'controller' => 'Index',
+    						'action'     => 'index'
+    				)
+    				);
+
+    	
+    }
+    
+    
+    public function asAuthorAction(){
+    	// Find the user in the database
+    	$_SESSION["user"]=User::findFirst("role='author'");
+    	 
+    	 
+    	return $this->dispatcher->forward(
+    			array(
+    					'controller' => 'Index',
+    					'action'     => 'index'
+    			)
+    			);
+    
+    	 
+    }
+    public function asUserAction(){
+    	 $_SESSION["auth"]=User::findFirst("role='user'");
+    	 return $this->dispatcher->forward(
+    	 		array(
+    	 				'controller' => 'Index',
+    	 				'action'     => 'index'
+    	 		)
+    	 		);
+    }
+    
+    
 }
 
