@@ -36,7 +36,9 @@ class ProjectsController extends DefaultController{
 		$this->view->setVars(array("project"=>$project,"siteUrl"=>$this->url->getBaseUri(),"baseHref"=>$this->dispatcher->getControllerName()));
 		parent::frmAction($id);
 	}
-	
+	protected function _deleteMessage($object){
+		return "Confirmez-vous la suppression du projet <b>".$object."</b> ?";
+	}
 	public function viewPAction($id=NULL){
 		$project=$this->getInstance($id);
 		
