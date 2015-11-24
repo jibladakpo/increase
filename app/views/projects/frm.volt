@@ -1,13 +1,13 @@
-{{ form("Users/update", "method": "post", "name":"frmObject", "id":"frmObject") }}
+{{ form("Projects/update", "method": "post", "name":"frmObject", "id":"frmObject") }}
 <fieldset>
 <legend>Ajouter/modifier un projet</legend>
 <div class="alert alert-info">Projet : {{project.toString()}}</div>
 <div class="form-group">
 	<input type="hidden" name="id" id="id" value="{{project.getId()}}">
-	<input type="text" name="nom" id="nom" value="{{user.getNom()}}" placeholder="Entrez le nom du projet" class="form-control">
-	<textarea name="description" id="description" class="form-control"> {{user.getDescription()}}</textarea>
-	<input type="date" name="dateLancement" id="dateLancement" value="{{user.getdateLancement()}}" placeholder="Entrez la date du lancement" class="form-control">
-	<input type="date" name="dateFinPrevue" id="dateFinPrevue" value="{{user.getdateFinPrevue()}}" placeholder="Entrez la date de fin prévue" class="form-control">
+	<input type="text" name="nom" id="nom" value="{{project.getNom()}}" placeholder="Entrez le nom du projet" class="form-control">
+	<textarea name="description" id="description" class="form-control"> {{project.getDescription()}}</textarea>
+	<input type="date" name="dateLancement" id="dateLancement" value="{{project.getdateLancement()}}" placeholder="Entrez la date du lancement" class="form-control">
+	<input type="date" name="dateFinPrevue" id="dateFinPrevue" value="{{project.getdateFinPrevue()}}" placeholder="Entrez la date de fin prévue" class="form-control">
 
 </div>
 <div class="form-group">
@@ -16,4 +16,3 @@
 </div>
 </fieldset>
 </form>
-{{ script_foot }}
