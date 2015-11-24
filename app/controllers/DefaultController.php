@@ -193,6 +193,17 @@ class DefaultController extends ControllerBase{
     	$this->_showMessage($message,"info",$timerInterval,$dismissable);
     }
     
+    private function _registerSession($user)
+    {
+    	$this->session->set(
+    			'auth',
+    			array(
+    					'id'   => $user->id,
+    					'mail' => $user->mail
+    			)
+    			);
+    }
+    
     public function ConnectAction()
     {
     	if ($this->request->isPost()) {

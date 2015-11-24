@@ -1,4 +1,4 @@
-{{ form("Index/Connect", "method": "post") }}
+{{ form("Default/Connect", "method": "post") }}
 <fieldset>
 <legend>Connexion</legend>
 
