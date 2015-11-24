@@ -19,11 +19,16 @@ class DefaultController extends ControllerBase{
     		$message->setTimerInterval($this->messageTimerInterval);
     		$msg=$this->_showDisplayedMessage($message);
     	}
+    	
+    	
     	$objects=call_user_func($this->model."::find");
     	$this->view->setVars(array("objects"=>$objects,"siteUrl"=>$this->url->getBaseUri(),"baseHref"=>$this->dispatcher-> getControllerName(),"model"=>$this->model,"msg"=>$msg));
+    	$this->tag->linkTo("view","view");
+    	
     	$this->jquery->getOnClick(".update, .add","","#content",array("attr"=>"data-ajax"));
     	$this->jquery->getOnClick(".delete","","#message",array("attr"=>"data-ajax"));
     	$this->jquery->compile($this->view);
+    	
     	$this->view->pick("main/index");
     }
 
@@ -188,6 +193,49 @@ class DefaultController extends ControllerBase{
     	$this->_showMessage($message,"info",$timerInterval,$dismissable);
     }
     
+    public function ConnectAction()
+    {
+    	if ($this->request->isPost()) {
+    
+    		// Get the data from the user
+    		$email    = $this->request->getPost('mail');
+    		$password = $this->request->getPost('password');
+    
+    		// Find the user in the database
+    		$user = User::findFirst(
+    				array(
+    						"mail = :email: AND password = :password:",
+    						'bind' => array(
+    								'email'    => $email,
+    								'password' => $password
+    						)
+    				)
+    				);
+    		if ($user != false) {
+    
+    			$this->_registerSession($user);
+    			$this->flash->success('Welcome ' . $user->identite);
+    			// Forward to the 'index' controller if the user is valid
+    			return $this->dispatcher->forward(
+    					array(
+    							'controller' => 'Index',
+    							'action'     => 'index'
+    					)
+    					);
+    		}
+    
+    		$this->flash->error('Wrong email/password');
+    	}
+    
+    	// Forward to the login form again
+    	return $this->dispatcher->forward(
+    			array(
+    					'controller' => 'Index',
+    					'action'     => 'frm_log'
+    			)
+    			);
+    }
+    
     public function disconnectAction()
     {
     	// Destroy the whole session
@@ -241,6 +289,9 @@ class DefaultController extends ControllerBase{
     			)
     			);
     }
-  
-}
+    
+    
+    }
+    
+    
 
