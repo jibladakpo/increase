@@ -23,8 +23,6 @@ class DefaultController extends ControllerBase{
     	
     	$objects=call_user_func($this->model."::find");
     	$this->view->setVars(array("objects"=>$objects,"siteUrl"=>$this->url->getBaseUri(),"baseHref"=>$this->dispatcher-> getControllerName(),"model"=>$this->model,"msg"=>$msg));
-    	$this->tag->linkTo("view","view");
-    	
     	$this->jquery->getOnClick(".update, .add","","#content",array("attr"=>"data-ajax"));
     	$this->jquery->getOnClick(".delete","","#message",array("attr"=>"data-ajax"));
     	$this->jquery->compile($this->view);
@@ -61,6 +59,10 @@ class DefaultController extends ControllerBase{
     	$this->jquery->postFormOnClick(".validate", $this->dispatcher->getControllerName()."/update", "frmObject","#content");
     	$this->jquery->getOnClick(".cancel","","#content",array("attr"=>"data-ajax"));
     	$this->jquery->compile($this->view);
+    }
+    
+    public function viewPAction($id=NULL){
+    	
     }
 
 
