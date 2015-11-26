@@ -16,7 +16,7 @@ class UsersController extends DefaultController{
     		$msg=$this->_showDisplayedMessage($message);
     	}
     	
-    	
+    	if(isset($this->session->auth)){
     	$objects=call_user_func($this->model."::find");
     	$this->view->setVars(array("objects"=>$objects,"siteUrl"=>$this->url->getBaseUri(),"baseHref"=>$this->dispatcher-> getControllerName(),"model"=>$this->model,"msg"=>$msg));
     	$this->tag->linkTo("view","view");
@@ -29,10 +29,17 @@ class UsersController extends DefaultController{
     	$this->jquery->compile($this->view);
     	
     	$this->view->pick("main/index");
+    	
+    	}else{
+    			
+    		$this->view->pick("main/frm_log");
+    	
+    	}
 
 	}
 
 	public function frmAction($id=NULL){
+		if(isset($this->session->auth)){
 		$user=$this->getInstance($id);
 		$select=new HtmlSelect("role","Rôle","Sélectionnez un rôle...");
 		$select->fromArray(array("admin","user","author"));
@@ -40,6 +47,12 @@ class UsersController extends DefaultController{
 		$select->compile($this->jquery,$this->view);
 		$this->view->setVars(array("user"=>$user,"siteUrl"=>$this->url->getBaseUri(),"baseHref"=>$this->dispatcher->getControllerName()));
 		parent::frmAction($id);
+		
+		}else{
+			
+			$this->view->pick("main/frm_log");
+			 
+		}
 	}
 	
 	protected function _deleteMessage($object){
