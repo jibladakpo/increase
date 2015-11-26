@@ -64,6 +64,10 @@ class DefaultController extends ControllerBase{
     public function viewPAction($id=NULL){
     	
     }
+    
+    public function viewMAction($id=NULL){
+    	 
+    }
 
 
     /**
