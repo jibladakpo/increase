@@ -250,8 +250,16 @@ class Projet extends BaseModel{
 		$result=$this->nom;
 		$client=$this->getClient();
 		if(isset($client)){
-			$result.=" (".$client.")";
+			$result.=" (".$client.")";  
 		}
 		return $result;
+	}
+	
+	public function avancement(){
+		$result=$this->avancement;
+		$avancement=$this->getAvancement();
+		if(isset($avancement)){
+			$result.="(".$avancement.")";
+		}
 	}
 }

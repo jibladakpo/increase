@@ -6,6 +6,9 @@
 	<div>Description: {{project.getDescription()}}</div>
 	<div>Date de Lancement: {{project.getDateLancement()}}</div>
 	<div>Date de fin prévue: {{project.getDateFinPrevue()}}</div>
+	<div>Client: {{project.getClient()}}</div>
+	<div>Avancement du projet: {{project.getAvancement()}}</div>
+	<
 </div>
 <div class="form-group">
 	<a class="btn btn-default cancel" href="{{url.get("Projects")}}" data-ajax="{{ baseHref ~ "/index"}}">Retour</a>
