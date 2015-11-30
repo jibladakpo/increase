@@ -3,12 +3,12 @@
 <legend>Projet {{tache.getLibelle()}} </legend>
 
 <div class="form-group">
-	<div>Description: {{tache.getDate()}}</div>
-	<div>Date de Lancement: {{tache.getAvancement()}}</div>
+	<div>Date: {{tache.getDate()}}</div>
+	<div>Avancement: {{tache.getAvancement()}}%</div>
 	
 </div>
 <div class="form-group">
-	<a class="btn btn-default cancel" href="{{url.get("Projects")}}" data-ajax="{{ baseHref ~ "/index"}}">Retour</a>
+	<a class="btn btn-default cancel" href="{{url.get("Taches")}}" data-ajax="{{ baseHref ~ "/index"}}">Retour</a>
 </div>
 </fieldset>
 </form>

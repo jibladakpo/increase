@@ -24,7 +24,7 @@ public function indexAction($message = NULL){
 		$this->jquery->getOnClick(".update, .add","","#content",array("attr"=>"data-ajax"));
 		$this->jquery->getOnClick(".delete","","#message",array("attr"=>"data-ajax"));
 			
-		$this->jquery->getOnClick("tr", "projects/viewT","#content",array("attr"=>"data-ajax"));
+		$this->jquery->getOnClick("tr", "taches/viewT","#content",array("attr"=>"data-ajax"));
 			
 		$this->jquery->compile($this->view);
 			
@@ -41,7 +41,7 @@ public function frmAction($id=NULL){
 	if(isset($this->session->auth)){
 			
 		$project=$this->getInstance($id);
-		$this->view->setVars(array("project"=>$project,"siteUrl"=>$this->url->getBaseUri(),"baseHref"=>$this->dispatcher->getControllerName()));
+		$this->view->setVars(array("tache"=>$project,"siteUrl"=>$this->url->getBaseUri(),"baseHref"=>$this->dispatcher->getControllerName()));
 		parent::frmAction($id);
 
 	}else{

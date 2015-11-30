@@ -1,12 +1,11 @@
 {{ form("Taches/update", "method": "post", "name":"frmObject", "id":"frmObject") }}
 <fieldset>
 <legend>Ajouter/modifier une tâche</legend>
-<div class="alert alert-info">Projet : {{tache.toString()}}</div>
 <div class="form-group">
 	<input type="hidden" name="id" id="id" value="{{tache.getId()}}">
 	<input type="text" name="nom" id="libelle" value="{{tache.getLibelle()}}" placeholder="Entrez le nom du projet" class="form-control">
-	<input type="date" name="dateLancement" id="date" value="{{project.getDate()}}" placeholder="Entrez la date du lancement" class="form-control">
-	
+	<input type="date" name="date" id="date" value="{{tache.getDate()}}" placeholder="Entrez la date du lancement" class="form-control">
+	<input type="text" name="avancement" id="avancement" value="{{tache.getAvancement()}}" placeholder="Entrez un pourcentage" class="form-control">
 
 </div>
 <div class="form-group">
