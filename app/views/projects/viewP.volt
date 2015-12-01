@@ -2,16 +2,15 @@
 {{ form("Projects/viewP", "method": "post", "name":"frmObject", "id":"frmObject") }}
 <fieldset>
 <legend>Projet {{project.getNom()}} </legend>
-
-<img src={{project.getImage()}} />
 <div class="form-group">
-<div class="btn btn-success"><span >&nbsp;
-					Client: {{project.getClient()}}</span>
-	</div>
+<div class="panel-group">
+<img src={{project.getImage()}} />
+<div class="alert alert-success"> <span class="glyphicon glyphicon-tower"> Client: {{project.getClient()}} </div>
+
 	
-<div class="alert alert-info">Description: </div>
+<div class="alert alert-info">Description:  </div>
 				<div class="panel-body"><span >&nbsp;
-					{{project.getDescription()}}	
+						{{project.getDescription()}}	
 				</div>  
 				
 			</div>
