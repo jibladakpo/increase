@@ -19,6 +19,20 @@ class IndexController extends ControllerBase
     
     }
     
+    public function disconnectAction()
+    {
+    	// Destroy the whole session
+    	$this->session->destroy();
+    
+    	// Forward to the login form again
+    	return $this->dispatcher->forward(
+    			array(
+    					'controller' => 'Index',
+    					'action'     => 'frm_log'
+    			)
+    			);
+    }
+    
     
 }
 

@@ -6,7 +6,7 @@
 	<input type="hidden" name="id" id="id" value="{{message.getId()}}">
 	<input type="text" name="objet" id="objet" value="{{message.getObjet()}}" placeholder="Entrez l'objet" class="form-control">
 	<textarea name="content" id="content" class="form-control" placeholder="Saisissez votre message">{{message.getContent()}}</textarea>
-	<input type="text" name="date" id="dateLancement" value="{{message.getdate()}}">
+	<input type="text" name="date" id="date" value="{{message.getdate()}}">
 </div>
 <div class="form-group">
 	<input type="submit" value="Valider" class="btn btn-default validate">
