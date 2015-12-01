@@ -249,6 +249,13 @@ class Message extends BaseModel{
     }
 
     public function toString(){
-    	return $this->objet;
+    	$result = $this->objet;
+    	$user = $this->getUser();
+    	$projet = $this->getProjet();
+    	if (isset($user)){
+    		$result.=" De (".$user.")"." Sur ".$projet."";
+    	}
+    	return $result;
     }
+
 }
