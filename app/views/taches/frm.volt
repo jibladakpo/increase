@@ -5,7 +5,8 @@
 	<input type="hidden" name="id" id="id" value="{{tache.getId()}}">
 	<input type="text" name="nom" id="libelle" value="{{tache.getLibelle()}}" placeholder="Entrez le nom du projet" class="form-control">
 	<input type="date" name="date" id="date" value="{{tache.getDate()}}" placeholder="Entrez la date du lancement" class="form-control">
-	<input type="text" name="avancement" id="avancement" value="{{tache.getAvancement()}}" placeholder="Entrez un pourcentage" class="form-control">
+	<input type="number" name="avancement" id="avancement" value="{{tache.getAvancement()}}" placeholder="Entrez un pourcentage" class="form-control">
+	<select type="text" name="nom" id="libelle" value="{{tache.getCodeUseCase()}}" placeholder="Usecase" class="form-control"</select>
 
 </div>
 <div class="form-group">

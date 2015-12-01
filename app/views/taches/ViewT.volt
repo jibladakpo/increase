@@ -4,7 +4,14 @@
 
 <div class="form-group">
 	<div>Date: {{tache.getDate()}}</div>
-	<div>Avancement: {{tache.getAvancement()}}%</div>
+	<div class="progress">
+  <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="{{tache.getAvancement()}}"
+  aria-valuemin="0" aria-valuemax="100" style="width:{{tache.getAvancement()}}%">
+    {{tache.getAvancement()}}% Complete
+  </div>
+</div>
+</div>
+
 	
 </div>
 <div class="form-group">
