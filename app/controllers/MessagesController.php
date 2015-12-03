@@ -37,6 +37,23 @@ class MessagesController extends DefaultController{
 		}
 
 	}
+	
+	/**
+	 * Retourne une instance de $model<br>
+	 * si $id est nul, un nouvel objet est retourné<br>
+	 * sinon l'objet retourné est celui chargé depuis la BDD à partir de l'id $id
+	 * @param string $id
+	 * @return multitype:$className
+	 */
+	public function getInstance($id=NULL){
+		if(isset($id)){
+			$object=call_user_func($this->model."::findfirst",$id);
+		}else{
+			$className=$this->model;
+			$object=new $className();
+		}
+		return $object;
+	}
 
 	public function frmAction($id=NULL){
 		if(isset($this->session->auth)){
@@ -57,7 +74,7 @@ class MessagesController extends DefaultController{
 			
 		$message=$this->getInstance($id);
 		$this->view->setVars(array("message"=>$message,"siteUrl"=>$this->url->getBaseUri(),"baseHref"=>$this->dispatcher->getControllerName()));
-		parent::viewMAction($id);
+		
 		
 		}else{
 		

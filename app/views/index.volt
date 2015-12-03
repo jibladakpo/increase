@@ -7,6 +7,7 @@
 		{{ stylesheet_link("css/styles.css") }}
 		{{ javascript_include('js/jquery.min.js') }}
 		{{ javascript_include('js/bootstrap.min.js') }}
+		{{ javascript_include('js/ckeditor/ckeditor.js') }}
 	</head>
 	<meta charset="UTF-8">
 	<body>
