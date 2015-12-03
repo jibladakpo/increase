@@ -253,7 +253,7 @@ class Message extends BaseModel{
     	$user = $this->getUser();
     	$projet = $this->getProjet();
     	if (isset($user)){
-    		$result.=" De (".$user.")"." Sur ".$projet."";
+    		$result.=" De (".$user.")";
     	}
     	return $result;
     }

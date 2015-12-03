@@ -73,6 +73,10 @@ class DefaultController extends ControllerBase{
     
     }
     
+    public function viewUAction($id=NULL){
+    
+    }
+    
 
 
     /**
@@ -210,7 +214,8 @@ class DefaultController extends ControllerBase{
     			'auth',
     			array(
     					'id'   => $user->id,
-    					'mail' => $user->mail
+    					'mail' => $user->mail,
+    					'role' => $user->role
     			)
     			);
     }
