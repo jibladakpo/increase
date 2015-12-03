@@ -38,8 +38,8 @@ class UseCasesController extends DefaultController{
 	
 	}
 	
-	public function viewPAction($code=NULL){
-		$usecase=$this->getInstance($code);
+	public function viewUCAction($id=NULL){
+		$usecase=$this->getInstance($id);
 		
 		$this->view->setVars(array("usecase"=>$usecase,"siteUrl"=>$this->url->getBaseUri(),"baseHref"=>$this->dispatcher->getControllerName()));
 		parent::viewPAction($id);

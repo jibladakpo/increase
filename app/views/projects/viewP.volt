@@ -4,7 +4,7 @@
 <legend>Projet {{project.getNom()}} </legend>
 <div class="form-group">
 <div class="panel-group">
-<img src={{project.getImage()}} />
+<img src="http://127.0.0.1/increase/public/img/{{project.getImage()}}"/>
 <div class="alert alert-success"> <span class="glyphicon glyphicon-tower"> Client: {{project.getClient()}} </div>
 
 	
@@ -25,9 +25,11 @@
 				</div>  
 			</div>
 			
+			
+			
 </div><div class="alert alert-warning">Equipe de développement: </div>
 			<div class="panel-body"><span class="glyphicon glyphicon-user" >&nbsp;
-					{{project.getDateFinPrevue()}}	
+					{{usecase.getIdDev()}}	
 				</div>  
 			</div>
 			
