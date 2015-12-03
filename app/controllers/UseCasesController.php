@@ -4,7 +4,14 @@ class UseCasesController extends DefaultController{
 		parent::initialize();
 		$this->model="Usecase";
 	}
-	
+	public function getInstance($id=NULL){
+		if(isset($id)){
+			$object=Usecase::findfirst("code='".$id."'");
+		}else{
+			$object=new Usecase();
+		}
+		return $object;
+	}
 	public function indexAction($message = NULL){
 		$msg="";
 		if(isset($message)){
@@ -24,7 +31,7 @@ class UseCasesController extends DefaultController{
 			$this->jquery->getOnClick(".update, .add","","#content",array("attr"=>"data-ajax"));
 			$this->jquery->getOnClick(".delete","","#message",array("attr"=>"data-ajax"));
 				
-			$this->jquery->getOnClick("tr", "usecases/viewP","#content",array("attr"=>"data-ajax"));
+			$this->jquery->getOnClick("tr", "usecases/viewUC","#content",array("attr"=>"data-ajax"));
 				
 			$this->jquery->compile($this->view);
 				
@@ -42,7 +49,7 @@ class UseCasesController extends DefaultController{
 		$usecase=$this->getInstance($id);
 		
 		$this->view->setVars(array("usecase"=>$usecase,"siteUrl"=>$this->url->getBaseUri(),"baseHref"=>$this->dispatcher->getControllerName()));
-		parent::viewPAction($id);
+	
 	
 	}
 }

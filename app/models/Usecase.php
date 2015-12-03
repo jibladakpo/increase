@@ -218,7 +218,7 @@ class Usecase extends BaseModel{
     }
 
 	public function toString(){
-		return $this->getCode()."->".$this->nom;
+		return $this->nom;
 	}
 
 	public function getId(){

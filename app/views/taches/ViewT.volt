@@ -1,6 +1,6 @@
 {{ form("Taches/viewT", "method": "post", "name":"frmObject", "id":"frmObject") }}
 <fieldset>
-<legend>Projet {{tache.getLibelle()}} </legend>
+<legend>Tâche {{tache.getLibelle()}} </legend>
 
 <div class="form-group">
 	<div>Date: {{tache.getDate()}}</div>
