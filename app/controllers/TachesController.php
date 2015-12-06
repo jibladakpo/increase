@@ -59,7 +59,7 @@ public function viewTAction($id=NULL){
 	$tache=$this->getInstance($id);
 
 	$this->view->setVars(array("tache"=>$tache,"siteUrl"=>$this->url->getBaseUri(),"baseHref"=>$this->dispatcher->getControllerName()));
-	parent::viewTAction($id);
+	
 
 }
 }
