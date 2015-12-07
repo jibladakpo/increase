@@ -31,7 +31,7 @@
 			
 </div><div class="alert alert-warning">Equipe de développement: </div>
 			<div class="panel-body"><span class="glyphicon glyphicon-user" >&nbsp;
-					
+					{{project.getUser()}}
 				</div>  
 			</div>
 			

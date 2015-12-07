@@ -2,6 +2,7 @@
 <fieldset>
 <legend>Ajouter/Modifier une tâche</legend>
 <div class="form-group">
+	<input type="hidden" name="id" id="id" value="{{tache.getId()}}">
 	<div>Nom de la tâche:</div>
 	<input type="text" name="nom" id="libelle" value="{{tache.getLibelle()}}" placeholder="Entrez le nom du projet" class="form-control">
 	<br>

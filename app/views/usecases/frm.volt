@@ -2,11 +2,13 @@
 <fieldset>
 <legend>Ajouter/Modifier un usecase</legend>
 <div class="form-group">
+
+	<input type="hidden" name="id" id="id" value="{{usecase.getId()}}">
 	<div>Nom du Usecase:</div>
 	<input type="text" name="nom" id="nom" value="{{usecase.getNom()}}" placeholder="Entrez le nom du projet" class="form-control">
 	<br>
 	<div>Nom du Projet:</div>
-		<select type="text" name="projet" id="projet"  placeholder="Sélectionner un Projet" class="form-control"><option {{usecase.getProjet()}}>{{usecase.getProjet()}}</div></option> </select>
+		<input type="text" name="nom" id="nom" value="{{usecase.getProjet()}}" placeholder="Entrez le nom du projet" class="form-control">
 	<br>
 	<div>Avancement:</div>
 	<input type="number" name="avancement" id="avancement" value="{{usecase.getAvancement()}}" placeholder="Entrez un pourcentage" class="form-control">

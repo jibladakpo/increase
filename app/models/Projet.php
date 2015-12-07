@@ -255,11 +255,8 @@ class Projet extends BaseModel{
 		return $result;
 	}
 	
-	public function avancement(){
-		$result=$this->avancement;
-		$avancement=$this->getAvancement();
-		if(isset($avancement)){
-			$result.="(".$avancement.")";
+	public function getUser(){
+		return $this->identite;
 		}
-	}
+	
 }
