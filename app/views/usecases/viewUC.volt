@@ -26,6 +26,7 @@
 				<div class="panel-body"><span class="glyphicon glyphicon-user">&nbsp;
 						{{usecase.getUser()}}	
 				</div> 
+				
 
 
 </div>
