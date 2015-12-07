@@ -4,19 +4,25 @@
 <div class="form-group">
 
 	<input type="hidden" name="id" id="id" value="{{usecase.getId()}}">
-	<div>Nom du Usecase:</div>
+	<label>Nom du Usecase:</label>
 	<input type="text" name="nom" id="nom" value="{{usecase.getNom()}}" placeholder="Entrez le nom du projet" class="form-control">
-	<br>
-	<div>Nom du Projet:</div>
-		<input type="text" name="nom" id="nom" value="{{usecase.getProjet()}}" placeholder="Entrez le nom du projet" class="form-control">
-	<br>
-	<div>Avancement:</div>
+
+	<label>Nom du Projet:</label>
+		<select name="idProjet" id="projet" class="form-control">
+		{% for project in projet %}
+    	<option value="{{project.getId()}}">{{project.getNom()}}</option>{% endfor%}
+    </select>
+	
+	<label>Avancement:</label>
 	<input type="number" name="avancement" id="avancement" value="{{usecase.getAvancement()}}" placeholder="Entrez un pourcentage" class="form-control">
-	<br>
-	<div>Nom du développeur:</div>
-		<select type="text" name="user" id="user"  placeholder="Sélectionner un développeur" class="form-control"><option {{usecase.getUser()}}>{{usecase.getUser()}}</div></option> </select>
-	<br>
-	<div>Poids:</div>
+	
+	<label>Nom du développeur:</label>
+		<select name="idDev" id="user" class="form-control">
+		{% for user in user %}
+    	<option value="{{user.getId()}}">{{user.getIdentite()}}</option>{% endfor%}
+    </select>
+	
+	<label>Poids:</label>
 	<input type="number" name="poids" id="poids" value="{{usecase.getPoids()}}" placeholder="Entrez un poids" class="form-control">
 
 </div>

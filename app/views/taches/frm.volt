@@ -3,17 +3,20 @@
 <legend>Ajouter/Modifier une tâche</legend>
 <div class="form-group">
 	<input type="hidden" name="id" id="id" value="{{tache.getId()}}">
-	<div>Nom de la tâche:</div>
+	<label>Nom de la tâche:</label>
 	<input type="text" name="nom" id="libelle" value="{{tache.getLibelle()}}" placeholder="Entrez le nom du projet" class="form-control">
-	<br>
-	<div>Date:</div>
+	
+	<label>Date:</label>
 	<input type="date" name="date" id="date" value="{{tache.getDate()}}" placeholder="Date" class="form-control"</div>
-	<br>
-	<div>Avancement:</div>
+	
+	<label>Avancement:</label>
 	<input type="number" name="avancement" id="avancement" value="{{tache.getAvancement()}}" placeholder="Entrez un pourcentage" class="form-control">
-	<br>
-	<div>Usecase:</div>
-	<select type="text" name="usecase" id="usecase"  placeholder="Sélectionner un Usecase" class="form-control"><option {{tache.getUseCase()}}>{{tache.getUseCase()}}</div></option> </select>
+	
+	<label>Usecase</label>
+	<select name="usecase" id="usecase" class="form-control">
+		{% for usecase in usecase %}
+    	<option value="{{usecase.getId()}}">{{usecase.getNom()}}</option>{% endfor%}
+    </select>
 
 </div>
 <div class="form-group">
