@@ -57,9 +57,9 @@ class MessagesController extends DefaultController{
 
 	public function frmAction($id=NULL){
 		if(isset($this->session->auth)){
-			
+		$projet = projet::find();
 		$message=$this->getInstance($id);
-		$this->view->setVars(array("message"=>$message,"siteUrl"=>$this->url->getBaseUri(),"baseHref"=>$this->dispatcher->getControllerName()));
+		$this->view->setVars(array("message"=>$message,"projet"=>$projet,"siteUrl"=>$this->url->getBaseUri(),"baseHref"=>$this->dispatcher->getControllerName()));
 		parent::frmAction($id);
 		
 		}else{

@@ -70,7 +70,7 @@ class UsersController extends DefaultController{
 			$id = $this->session->auth['id'];
 			$user=$this->getInstance($id);
 			$this->view->setVars(array("user"=>$user,"siteUrl"=>$this->url->getBaseUri(),"baseHref"=>$this->dispatcher->getControllerName()));
-			parent::viewUAction($id);
+			
 	
 		}else{
 	

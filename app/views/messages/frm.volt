@@ -7,6 +7,13 @@
 	<input type="text" name="objet" id="objet" value="{{message.getObjet()}}" placeholder="Entrez l'objet" class="form-control">
 	<textarea name="content" id="content" class="form-control" placeholder="Saisissez votre message">{{message.getContent()}}</textarea>
 	<input type="text" name="date" id="date" value="{{message.getdate()}}">
+	<div class="container">
+    <br/>
+<select>{% for projet in projet %}
+    <option><h3> message.getProjet()</h3></option>{% endfor%}
+    </select>
+
+	
 </div>
 <div class="form-group">
 	<input type="submit" value="Valider" class="btn btn-default validate">
