@@ -61,21 +61,7 @@ class DefaultController extends ControllerBase{
     	$this->jquery->compile($this->view);
     }
     
-    public function viewPAction($id=NULL){
-    	
-    }
     
-    public function viewMAction($id=NULL){
-    	 
-    }
-    
-    public function viewTAction($id=NULL){
-    
-    }
-    
-    public function viewUAction($id=NULL){
-    
-    }
     
     
 

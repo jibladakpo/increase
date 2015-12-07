@@ -10,12 +10,6 @@
   </div>
 <br>
 <br>
-<div class="alert alert-info">Poids:  </div>
-				<div class="panel-body"><span >&nbsp;
-						{{usecase.getPoids()}}	
-				</div> 
-
-
 
 <div class="alert alert-info">Projet:  </div>
 				<div class="panel-body"><span >&nbsp;
@@ -28,6 +22,10 @@
 				</div> 
 				
 
+<div class="alert alert-info">Poids:  </div>
+				<div class="panel-body"><span >&nbsp;
+						{{usecase.getPoids()}}	
+				</div> 
 
 </div>
 <div class="form-group">
