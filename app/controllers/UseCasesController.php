@@ -1,5 +1,4 @@
 <?php
-use Ajax\bootstrap\html\html5\HtmlSelect;
 class UseCasesController extends DefaultController{
 	public function initialize(){
 		parent::initialize();
@@ -53,25 +52,4 @@ class UseCasesController extends DefaultController{
 	
 	
 	}
-	
-	public function frmAction($id=NULL){
-		if(isset($this->session->auth)){
-			$usecase=$this->getInstance($id);
-			$select=new HtmlSelect("user","projet","Sélectionnez un projet...");
-			$select->fromArray(array("usecase.getProjet()"));
-			$select->setValue($usecase->getProjet());
-			$select=new HtmlSelect("user","user","Sélectionnez un développeur...");
-			$select->fromArray(array("usecase.getUser()"));
-			$select->setValue($usecase->getUser());
-			$select->compile($this->jquery,$this->view);
-			$this->view->setVars(array("usecase"=>$usecase,"siteUrl"=>$this->url->getBaseUri(),"baseHref"=>$this->dispatcher->getControllerName()));
-			parent::frmAction($id);
-	
-		}else{
-	
-			$this->view->pick("main/frm_log");
-	
-		}
-	}
-
 }

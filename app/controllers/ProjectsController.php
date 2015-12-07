@@ -58,7 +58,7 @@ class ProjectsController extends DefaultController{
 		$project=$this->getInstance($id);
 		
 		$this->view->setVars(array("project"=>$project,"siteUrl"=>$this->url->getBaseUri(),"baseHref"=>$this->dispatcher->getControllerName()));
-		
+		parent::viewPAction($id);
 		
 	}
 }
