@@ -15,7 +15,7 @@
 	<input class="form-control" type="date" name="date" id="date" value="{{message.getdate()}}">
 
 	<label>Projet</label>
-	<select name="projet" id="projet" class="form-control">
+	<select name="idProjet" id="projet" class="form-control">
 		{% for project in projet %}
     	<option value="{{project.getId()}}">{{project.getNom()}}</option>{% endfor%}
     </select>
