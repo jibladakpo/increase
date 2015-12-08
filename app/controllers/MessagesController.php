@@ -61,15 +61,33 @@ class MessagesController extends DefaultController{
 		$idUser = $this->session->auth['id'];
 		$user=User::findFirst($idUser);
 		
-		$projet = projet::find();
+		$projets = projet::find();
 		$message=$this->getInstance($id);
-		$this->view->setVars(array("message"=>$message,"projet"=>$projet,"user"=>$user,"siteUrl"=>$this->url->getBaseUri(),"baseHref"=>$this->dispatcher->getControllerName()));
+		$this->view->setVars(array("message"=>$message,"projets"=>$projets,"user"=>$user,"siteUrl"=>$this->url->getBaseUri(),"baseHref"=>$this->dispatcher->getControllerName()));
 		parent::frmAction($id);
 		
 		}else{
 		
 			$this->view->pick("main/frm_log");
 		
+		}
+	}
+	
+	public function frmUpdateAction($id=NULL){
+		if(isset($this->session->auth)){
+				
+			$idUser = $this->session->auth['id'];
+			$user=User::findFirst($idUser);
+	
+			$projets = projet::find();
+			$message=$this->getInstance($id);
+			$this->view->setVars(array("message"=>$message,"projets"=>$projets,"user"=>$user,"siteUrl"=>$this->url->getBaseUri(),"baseHref"=>$this->dispatcher->getControllerName()));
+			parent::frmUpdateAction($id);
+	
+		}else{
+	
+			$this->view->pick("main/frm_log");
+	
 		}
 	}
 
