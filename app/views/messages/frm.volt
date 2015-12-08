@@ -10,20 +10,19 @@
 	
 	<label>Message</label>
 	<textarea name="content" id="content" class="form-control" placeholder="Saisissez votre message">{{message.getContent()}}</textarea>
+	
+	<label>Date d'envoi</label>
+	<input class="form-control" type="date" name="date" id="date" value="{{message.getdate()}}">
 
 	<label>Projet</label>
 	<select name="idProjet" id="projet" class="form-control">
-		{% for project in projets %}
-    		<option value="{{project.getId()}}">{{project.getNom()}}</option>
-    	{% endfor%}
+		{% for project in projet %}
+    	<option value="{{project.getId()}}">{{project.getNom()}}</option>{% endfor%}
     </select>
     
     <label>Emetteur</label>
     <input type="hidden" name="idUser" value="{{user.getId()}}">
 	<div class="form-control" disabled>{{user.getIdentite()}}</div>
-	
-	<label>Date d'envoi</label>
-	<input class="form-control" disabled type="text" name="date" id="date" value="{{date('Y-m-d H:i:s')}}">
 
 	
 </div>
