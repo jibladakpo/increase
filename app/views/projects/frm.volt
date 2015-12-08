@@ -5,6 +5,8 @@
 <div class="form-group">
 	
 	<input type="hidden" name="id" id="id" value="{{project.getId()}}">
+	<label class="control-label">Select File</label>
+<input name="image" id="image" type="file" class="file">
 	<label>Nom du projet:</label>
 	<input type="text" name="nom" id="nom" value="{{project.getNom()}}" placeholder="Entrez le nom du projet" class="form-control">
 	<label>Description:</label>
