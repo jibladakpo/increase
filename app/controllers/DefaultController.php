@@ -61,9 +61,19 @@ class DefaultController extends ControllerBase{
     	$this->jquery->compile($this->view);
     }
     
-    
-    
-    
+    /**
+     * Affiche le formulaire d'ajout ou de modification d'une instance de $model<br>
+     * L'instance est définie à partir de $id<br>
+     * frm doit utiliser la méthode getInstance() pour obtenir l'instance à ajouter ou à modifier
+     * @see DefaultController::getInstance()
+     * @param string $id
+     */
+    public function frmUpdateAction($id=NULL){
+    	echo "Méthode <b>frmUpdateAction</b> à surdéfinir...<br>Sans oublier l'appel de la méthode parent en fin : <b>parent::frmUpdateAction($id);</b>";
+    	$this->jquery->postFormOnClick(".validate", $this->dispatcher->getControllerName()."/update", "frmObject","#content");
+    	$this->jquery->getOnClick(".cancel","","#content",array("attr"=>"data-ajax"));
+    	$this->jquery->compile($this->view);
+    }    
 
 
     /**

@@ -12,9 +12,13 @@
 	<textarea name="content" id="content" class="form-control" placeholder="Saisissez votre message">{{message.getContent()}}</textarea>
 
 	<label>Projet</label>
-	<select name="idProjet" id="projet" class="form-control">
+	<select name="idProjet" id="projet" class="form-control" value="{{message.getProjet().getId()}}">
 		{% for project in projets %}
-    		<option value="{{project.getId()}}">{{project.getNom()}}</option>
+			{%if project.getId()==message.getProjet().getId()%}
+	    		<option selected value="{{project.getId()}}">{{project.getNom()}}</option>
+    		{%else%}
+    			<option value="{{project.getId()}}">{{project.getNom()}}</option>
+    		{%endif%}
     	{% endfor%}
     </select>
     
@@ -23,7 +27,8 @@
 	<div class="form-control" disabled>{{user.getIdentite()}}</div>
 	
 	<label>Date d'envoi</label>
-	<input class="form-control" disabled type="text" name="date" id="date" value="{{date('Y-m-d H:i:s')}}">
+	<input class="form-control" disabled type="hidden" name="date" id="date" value="message.getdate()">
+	<div class="form-control" disabled>{{message.getdate('d-m-Y H:i:s')}}</div>
 
 	
 </div>
