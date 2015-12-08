@@ -3,12 +3,13 @@
 <legend>Ajouter/Modifier un usecase</legend>
 <div class="form-group">
 
-	<input type="hidden" name="id" id="id" value="{{usecase.getId()}}">
+	<label>Code:</label>
+	<input type="text" name="code" id="code" value="{{usecase.getCode()}}" placeholder="Saisir le code" class="form-control">
 	<label>Nom du Usecase:</label>
-	<input type="text" name="nom" id="nom" value="{{usecase.getNom()}}" placeholder="Entrez le nom du projet" class="form-control">
+	<input type="text" name="nom" id="nom" value="{{usecase.getNom()}}" placeholder="Saisir le nom du Usecase" class="form-control">
 
 	<label>Nom du Projet:</label>
-		<select name="idProjet" id="projet" class="form-control">
+		<select name="idProjet" id="idProjet" class="form-control">
 		{% for project in projet %}
     	<option value="{{project.getId()}}">{{project.getNom()}}</option>{% endfor%}
     </select>
