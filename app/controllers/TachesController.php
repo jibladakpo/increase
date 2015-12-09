@@ -39,10 +39,24 @@ public function indexAction($message = NULL){
 }
 public function frmAction($id=NULL){
 	if(isset($this->session->auth)){
-			
+		$usecase= usecase::find();
 		$project=$this->getInstance($id);
-		$this->view->setVars(array("tache"=>$project,"siteUrl"=>$this->url->getBaseUri(),"baseHref"=>$this->dispatcher->getControllerName()));
+		$this->view->setVars(array("tache"=>$project,"usecase"=>$usecase,"siteUrl"=>$this->url->getBaseUri(),"baseHref"=>$this->dispatcher->getControllerName()));
 		parent::frmAction($id);
+
+	}else{
+
+		$this->view->pick("main/frm_log");
+
+	}
+}
+
+public function frmUpdateAction($id=NULL){
+	if(isset($this->session->auth)){
+		$usecase= usecase::find();
+		$project=$this->getInstance($id);
+		$this->view->setVars(array("tache"=>$project,"usecase"=>$usecase,"siteUrl"=>$this->url->getBaseUri(),"baseHref"=>$this->dispatcher->getControllerName()));
+		parent::frmUpdateAction($id);
 
 	}else{
 

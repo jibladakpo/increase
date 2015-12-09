@@ -1,5 +1,5 @@
 <?php
-use Ajax\bootstrap\html\html5\HtmlSelect;
+
 class UseCasesController extends DefaultController{
 	public function initialize(){
 		parent::initialize();
@@ -60,7 +60,26 @@ class UseCasesController extends DefaultController{
 			$projet = projet::find();
 			$user = user::find();
 			$this->view->setVars(array("usecase"=>$usecase,"user"=>$user,"projet"=>$projet,"siteUrl"=>$this->url->getBaseUri(),"baseHref"=>$this->dispatcher->getControllerName()));
-			
+			parent::frmAction($id);
+	
+		}else{
+	
+			$this->view->pick("main/frm_log");
+	
+		}
+	}
+	
+	protected function _deleteMessage($object){
+		return "Confirmez-vous la suppression de la tâche <b>".$object."</b> ?";
+	}
+	
+	public function frmUpdateAction($id=NULL){
+		if(isset($this->session->auth)){
+			$usecase=$this->getInstance($id);
+			$projet = projet::find();
+			$user = user::find();
+			$this->view->setVars(array("usecase"=>$usecase,"user"=>$user,"projet"=>$projet,"siteUrl"=>$this->url->getBaseUri(),"baseHref"=>$this->dispatcher->getControllerName()));
+			parent::frmUpdateAction($id);
 	
 		}else{
 	

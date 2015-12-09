@@ -1,4 +1,4 @@
-<h1>Welcome to Increase!</h1>
+<h1>Welcome to Increase!!</h1>
 
 {{link_to("index/index", "Register Here!")}}
 <div>
@@ -7,3 +7,5 @@ $panel=$this->jquery->bootstrap()->htmlPanel("panel-4","Contenu","Header");
 $panel->setStyle(CssRef::CSS_INFO);
  echo $panel;
  ?>
+ 
+ 

@@ -51,6 +51,20 @@ class ProjectsController extends DefaultController{
 		
 		}
 	}
+	
+	public function frmUpdateAction($id=NULL){
+		if(isset($this->session->auth)){
+				
+			$project=$this->getInstance($id);
+			$this->view->setVars(array("project"=>$project,"siteUrl"=>$this->url->getBaseUri(),"baseHref"=>$this->dispatcher->getControllerName()));
+			parent::frmUpdateAction($id);
+	
+		}else{
+	
+			$this->view->pick("main/frm_log");
+	
+		}
+	}
 	protected function _deleteMessage($object){
 		return "Confirmez-vous la suppression du projet <b>".$object."</b> ?";
 	}
