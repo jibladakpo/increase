@@ -1,6 +1,6 @@
 {{ form("Messages/update", "method": "post", "name":"frmObject", "id":"frmObject") }}
 <fieldset>
-<legend>Ajouter/modifier un message</legend>
+<legend>Ajouter un message</legend>
 <div class="alert alert-info">Message : {{message.toString()}}</div>
 <div class="form-group">
 	<input type="hidden" name="id" id="id" value="{{message.getId()}}">
@@ -10,9 +10,6 @@
 	
 	<label>Message</label>
 	<textarea name="content" id="content" class="form-control" placeholder="Saisissez votre message">{{message.getContent()}}</textarea>
-	
-	<label>Date d'envoi</label>
-	<input class="form-control" type="date" name="date" id="date" value="{{message.getdate()}}">
 
 	<label>Projet</label>
 	<select name="idProjet" id="projet" class="form-control">

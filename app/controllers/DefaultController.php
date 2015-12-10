@@ -135,7 +135,7 @@ class DefaultController extends ControllerBase{
     	}
     }
     public function deleteAction($id){
-    	$object=call_user_func($this->model."::findfirst",$id||$this->model."::findfirst","code='".$id."'");
+    	$object=call_user_func($this->model."::findfirst",$id);
     	$bs=$this->jquery->bootstrap();
     	$btYes=$bs->htmlButton("btYes","Supprimer")->setSize("btn-sm");
     	$btYes->getOnClick($this->dispatcher->getControllerName()."/_delete/".$id,"#content");
@@ -155,7 +155,7 @@ class DefaultController extends ControllerBase{
      */
     public function _deleteAction($id){
     	try{
-    		$object=call_user_func($this->model."::findfirst",$id||$this->model."::findfirst","code='".$id."'");
+    		$object=call_user_func($this->model."::findfirst",$id);
     		if($object!==NULL){
     			$object->delete();
     			$msg=new DisplayedMessage($this->model." `{$object->toString()}` supprimé(e)");

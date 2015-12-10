@@ -28,7 +28,7 @@ class MessagesController extends DefaultController{
 
 		$this->jquery->compile($this->view);
 
-		$this->view->pick("main/index");
+		$this->view->pick("messages/index");
 		
 		}else{
 			 

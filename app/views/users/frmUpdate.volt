@@ -1,6 +1,6 @@
 {{ form("Users/update", "method": "post", "name":"frmObject", "id":"frmObject") }}
 <fieldset>
-<legend>Ajouter un utilisateur</legend>
+<legend>Modifier un utilisateur</legend>
 <div class="alert alert-info">Utilisateur : {{user.toString()}}</div>
 <div class="form-group">
 	<input type="hidden" name="id" id="id" value="{{user.getId()}}">
