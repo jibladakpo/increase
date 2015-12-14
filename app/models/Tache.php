@@ -152,7 +152,7 @@ class Tache extends BaseModel{
      */
     public function initialize()
     {
-        $this->belongsTo('codeUseCase', 'Usecase', 'code', array('alias' => 'Usecase'));
+        $this->belongsTo('codeUseCase', 'Usecase', 'code', array('alias' => 'Usecases'));
     }
 
     /**

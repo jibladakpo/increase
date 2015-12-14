@@ -72,7 +72,7 @@ class ProjectsController extends DefaultController{
 		$project=$this->getInstance($id);
 		$devs= array();
 		$taches= array();
-	
+		
 		$usecases= $project->getUsecases();
 		foreach ($usecases as $usecase){
 			$devs[$usecase->getIdDev()]=$usecase->getUser();

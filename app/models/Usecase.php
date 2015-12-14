@@ -181,7 +181,7 @@ class Usecase extends BaseModel{
      */
     public function initialize()
     {
-        $this->hasMany('code', 'Tache', 'codeUseCase', array('alias' => 'Tache'));
+        $this->hasMany('code', 'Tache', 'codeUseCase', array('alias' => 'Taches'));
         $this->belongsTo('idProjet', 'Projet', 'id', array('alias' => 'Projet'));
         $this->belongsTo('idDev', 'User', 'id', array('alias' => 'User'));
     }

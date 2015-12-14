@@ -26,9 +26,7 @@
 					{{project.getDateFinPrevue()}}	
 				</div>  
 			</div>
-			
-			
-			
+				
 <div class="alert alert-warning">Développeur(s): </div>
 			<div class="panel-body">
 			
@@ -63,7 +61,6 @@
 </div>
 
 </div>
-<div class="form-group">
 	<a class="btn btn-default cancel" href="{{url.get("Projects")}}" data-ajax="{{ baseHref ~ "/index"}}">Retour</a>
 </div>
 </fieldset>
