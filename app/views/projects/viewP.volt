@@ -29,12 +29,39 @@
 			
 			
 			
-</div><div class="alert alert-warning">Equipe de développement: </div>
-			<div class="panel-body"><span class="glyphicon glyphicon-user" >&nbsp;
-					{{project.getUser()}}
-				</div>  
+<div class="alert alert-warning">Développeur(s): </div>
+			<div class="panel-body">
+			
+		{% for project in devs %}
+				<div name="idDev" class="form-control"><span class="glyphicon glyphicon-user"> {{project.getIdentite()}}</div>
+			{% endfor%}
+				 
 			</div>
 			
+</div>
+
+<div class="alert alert-warning">Taches: </div>
+<div class="panel-body">
+			{% for project in taches %}
+					<div name="usecase"  class="form-control"> 
+								{{usecase.getNom()}} - {{tache.getAvancement()}}		
+					</div>					
+	    	{% endfor%}
+</div>    	
+<div class="alert alert-danger">Messages: </div>
+<div class="panel-body">
+		
+		{% for message in message %}
+				<div name="message" id="message" class="form-control"> 
+					{{message.getUser()}} - {{message.getContent()}} - {{message.getDate()}}		
+				</div>					
+    	{% endfor%}
+			
+			
+    				 
+    	
+</div>
+
 </div>
 <div class="form-group">
 	<a class="btn btn-default cancel" href="{{url.get("Projects")}}" data-ajax="{{ baseHref ~ "/index"}}">Retour</a>

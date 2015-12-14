@@ -70,8 +70,19 @@ class ProjectsController extends DefaultController{
 	}
 	public function viewPAction($id=NULL){
 		$project=$this->getInstance($id);
-		
-		$this->view->setVars(array("project"=>$project,"siteUrl"=>$this->url->getBaseUri(),"baseHref"=>$this->dispatcher->getControllerName()));
+		$devs= array();
+		$taches= array();
+	
+		$usecases= $project->getUsecases();
+		foreach ($usecases as $usecase){
+			$devs[$usecase->getIdDev()]=$usecase->getUser();
+		}
+		foreach ($usecases as $usecase){
+			$taches[$usecase->getCode()]=$usecase->getNom();
+		}
+		$tache= tache::find();
+		$message= message::find();
+		$this->view->setVars(array("project"=>$project,"devs"=>$devs,"message"=>$message,"tache"=>$tache,"usecases"=>$usecases,"user"=>$user,"siteUrl"=>$this->url->getBaseUri(),"baseHref"=>$this->dispatcher->getControllerName()));
 		
 		
 	}
